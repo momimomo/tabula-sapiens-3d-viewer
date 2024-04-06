@@ -1,0 +1,132 @@
+.app {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #111; /* Dark background for the app */
+}
+
+.data-list-container {
+  flex: 1;
+  background-color: black;
+  border: 1px solid #00ff00;
+
+  color: #00ff00; /* Green text */
+  overflow-y: auto; /* Allows scrolling of the list */
+  padding: 10px;
+  box-sizing: border-box; /* Includes padding in the width */
+  height: 100vh;
+}
+
+.data-list-container h3 {
+  padding-bottom: 12px;
+  border-bottom: 1px solid #00ff00;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  flex: 3;
+  height: 100%;
+}
+
+.visualize-container {
+  flex: 3;
+  position: relative;
+}
+
+.controls-container {
+  flex: 1;
+  background-color: #eef; /* Darker background for controls */
+  display: flex;
+  justify-content: center; /* Centers controls horizontally */
+  align-items: center; /* Centers controls vertically */
+}
+
+
+.onboarding-overlay {
+  position: absolute;
+  white-space: pre-line;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 20;
+   display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Aligns content to the top */
+  align-items: center; /* Centers content horizontally */
+  padding-top: 20%; /* Adds padding at the top */
+}
+
+.onboarding-button {
+  background-color: #4CAF50; /* Green background for visibility */
+  color: white; /* White text */
+  padding: 14px 28px; /* Large padding for bigger button */
+  font-size: 16px; /* Readable text size */
+  cursor: pointer; /* Changes cursor to indicate button */
+  border: none; /* No border for a modern look */
+  border-radius: 4px; /* Rounded corners */
+  margin: 10px; /* Space around the buttons */
+  transition: background-color 0.3s; /* Smooth background color transition for hover */
+}
+
+.onboarding-button:hover {
+  background-color: #45a049; /* Darker green on hover for feedback */
+}
+
+.onboarding-buttons-container {
+  /* Remove absolute positioning and centering styles if they were previously set */
+  display: flex;
+  flex-direction: row;
+  justify-content: center; /* Center buttons horizontally */
+  gap: 10px; /* Space between buttons */
+}
+
+.onboarding-text {
+  margin-bottom: 20px; /* Add space below the text */
+  color: white; /* Text color */
+  font-size: 1.5rem; /* Adjust font size as needed */
+  width: 80vw;
+  padding: 10px 20px; /* Padding on the sides */
+  border: 1px solid #00ff00;
+  background-color: #111;
+  border-radius: 4px;
+  
+}
+
+.step-0 {
+  top: 10vh;
+  /* Position for step 0 */
+}
+
+.step-1 {
+  top: 30vh;
+  
+  /* Position for step 1 */
+}
+
+.step-2 {
+  top: 50vh;
+  /* Position for step 2 */
+}
+
+
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+  .app {
+    flex-direction: column;
+  }
+
+  .data-list-container,
+  .visualize-container {
+    flex: none;
+    height: 50%; /* 50% height each on smaller screens */
+  }
+
+  .controls-container {
+    height: auto; /* Height of controls fits to content */
+  }
+}

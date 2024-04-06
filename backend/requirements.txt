@@ -1,0 +1,11 @@
+flask
+flask-sqlalchemy
+Flask-Migrate
+Flask-Caching
+psycopg2-binary
+PyJWT
+flask-cors
+Pillow
+pandas
+anndata
+scanpy # Optional, for analysis and preprocessing
