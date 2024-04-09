@@ -19,7 +19,8 @@ Currently, the viewer is applied to explore the Blood Single Cell dataset.
 
 ### Installation Prerequisites
 
-The backend infrastructure utilizes Docker to containerize both a Flask application and a PostgreSQL database, ensuring consistent, isolated development environments. While the frontend build process occurs outside Docker, it operates within a docker-compose environment for integration.
+The backend infrastructure utilizes Docker to containerize both a Flask application and a PostgreSQL database, ensuring consistent, isolated development environments. 
+Use docker-compose for local development.
 
 ### Data Processing
 
