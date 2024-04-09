@@ -1,6 +1,6 @@
 # Tabula Sapiens 3D Viewer
 
-Tabula Sapiens 3D Viewer is a web application designed to explore Tabula Sapiens datasets in three dimensions, focusing initially on blood samples. 
+Tabula Sapiens 3D Viewer is a web application designed to explore Tabula Sapiens datasets as interactive 3D charts, focusing initially on blood samples. 
 
 Live Demo: [Tabula Sapiens 3D Viewer](https://momimomo.github.io/tabula-sapiens-3d-viewer/)
 
