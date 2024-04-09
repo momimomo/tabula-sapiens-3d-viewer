@@ -23,7 +23,7 @@ The backend infrastructure utilizes Docker to containerize both a Flask applicat
 
 ### Data Processing
 
-To visualize the datasets, the viewer processes .h5ad files, extracting cell metadata and dimensionality reduction data, specifically UMAP coordinates, for 3D visualization. Data is sourced from the Tabula Sapiens release available online. Then, this data is served via Flask ednpoints as JSON responses with just the bare minimum required for the visualization. Current live example uses one such example response, created via the logic that can be found in the Flask app.
+To visualize the datasets, the viewer processes .h5ad files, extracting cell metadata and dimensionality reduction data, specifically UMAP coordinates, for 3D visualization. Data is sourced from the Tabula Sapiens release available online. Then, this data is loaded into PostgreSQL and served via Flask ednpoints as JSON responses with just the bare minimum required for the visualization. Current live example uses one such example response, created via the logic that can be found in the Flask app.
 
 ### API Development
 
