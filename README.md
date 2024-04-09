@@ -10,7 +10,7 @@ Works best on 16:9 or 16:10 desktops with Google Chrome or Edge.
 
 Despite the advanced state of genomic and cellular analysis, a significant portion of visual data analysis remains confined to two-dimensional representations. 
 
-This project introduces a 3D data exploration tool, inspired by CELLxGENE, to facilitate a more intuitive and comprehensive visual analysis of genetic test samples. 
+This project introduces a 3D data exploration tool for browsers, inspired by CELLxGENE, to facilitate a more intuitive and comprehensive visual analysis of genetic test samples. 
 
 The tool is particularly useful for examining multiple aspects of data simultaneously and serves as an effective benchmark for browser performance, managing datasets with approximately 50,000 data points. 
 
