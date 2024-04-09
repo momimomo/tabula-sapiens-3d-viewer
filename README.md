@@ -1,6 +1,6 @@
-# Tabula Sapiens 3D Data Viewer
+# Tabula Sapiens 3D Viewer
 
-The Tabula Sapiens 3D Data Viewer is a web application designed to explore Tabula Sapiens datasets in three dimensions, focusing initially on blood samples. 
+Tabula Sapiens 3D Viewer is a web application designed to explore Tabula Sapiens datasets in three dimensions, focusing initially on blood samples. 
 Live Demo: [Tabula Sapiens 3D Viewer](https://momimomo.github.io/tabula-sapiens-3d-viewer/)
 
 Works best on 16:9 or 16:10 desktops with Google Chrome or Edge.
@@ -22,7 +22,7 @@ The backend infrastructure utilizes Docker to containerize both a Flask applicat
 
 ### Data Processing
 
-To visualize the datasets, the viewer processes .h5ad files, extracting cell metadata and dimensionality reduction data, specifically UMAP coordinates, for 3D visualization. Data is sourced from the Tabula Sapiens release available online.
+To visualize the datasets, the viewer processes .h5ad files, extracting cell metadata and dimensionality reduction data, specifically UMAP coordinates, for 3D visualization. Data is sourced from the Tabula Sapiens release available online. Then, this data is served via Flask ednpoints as JSON responses with just the bare minimum required for the visualization. Current live example uses one such example response, created via the logic that can be found in the Flask app.
 
 ### API Development
 
