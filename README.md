@@ -1,72 +1,49 @@
-# tabula-sapiens-3d-viewer
-3D data explorer for Tabula Sapiens datasets - Blood samples demo
+# Tabula Sapiens 3D Data Viewer
 
-Live demo available here: https://momimomo.github.io/tabula-sapiens-3d-viewer/
+The Tabula Sapiens 3D Data Viewer is a web application designed to explore Tabula Sapiens datasets in three dimensions, focusing initially on blood samples. 
+Live Demo: [Tabula Sapiens 3D Viewer](https://momimomo.github.io/tabula-sapiens-3d-viewer/)
 
-## 1. What's the purpose?
+Works best on 16:9 or 16:10 desktops with Google Chrome or Edge.
 
-It is suprising to me that still so much visual analysis of the genome and cell data is reduced to only 2D!    
+## Purpose
 
-I decided to create 3D charts explorer based on available data from Tabula Sapiens project, similar to CELLxGENE, but in 3D. 
+Despite the advanced state of genomic and cellular analysis, a significant portion of visual data analysis remains confined to two-dimensional representations. 
 
-Along with some intuitive filters, maybe in future it will allow for easier visual analysis of test samples
-when looking for multiple aspects of the analysed data. 
+This project introduces a 3D data exploration tool, inspired by CELLxGENE, to facilitate a more intuitive and comprehensive visual analysis of genetic test samples. 
 
-For now, it is also a great benchmark of browser performance, as single dataset holds around 50.000 data points.
+The tool is particularly useful for examining multiple aspects of data simultaneously and serves as an effective benchmark for browser performance, managing datasets with approximately 50,000 data points. 
 
-This basic implementation is looking at the data from Blood Single Cell dataset.
+Currently, the viewer is applied to explore the Blood Single Cell dataset.
 
-The problem at hand was that the files that can be found there are quite big, and in multidimensional format.
-However, via combination of tools, I was able to create a proof of concept for performant 3D charts with dynamic filters.
-You can see the example via the link above. 
 
-## 2. Install prerequisites
+### Installation Prerequisites
 
-Docker is used to containerize a Flask application and a PostgreSQL database, ensuring a consistent and isolated environment for development. 
+The backend infrastructure utilizes Docker to containerize both a Flask application and a PostgreSQL database, ensuring consistent, isolated development environments. While the frontend build process occurs outside Docker, it operates within a docker-compose environment for integration.
 
-Frontend can be built outside of a docker container, but it should run via docker-compose.
-    
-## 3. Data
+### Data Processing
 
-I implemented a method to load .h5ad files and process their contents, extracting cell metadata and dimensionality reduction data (.obsm), 
-particularly focusing on UMAP coordinates for visualizations. 
-    
-You will need to download this data from: https://figshare.com/articles/dataset/Tabula_Sapiens_release_1_0/14267219
-    
-## 4. API Development
+To visualize the datasets, the viewer processes .h5ad files, extracting cell metadata and dimensionality reduction data, specifically UMAP coordinates, for 3D visualization. Data is sourced from the Tabula Sapiens release available online.
 
-Currently I developed Flask endpoints to:
-- Load data from .h5ad files into the database.
-- Summarize the dataset, providing insights into its structure (e.g., .obs, .var, .obsm, .varm, and .uns components).
-- Fetch and serve cell data, enabling downstream analysis and visualization.
+### API Development
 
-## 5. Local development
+The Flask backend supports several functions, including:
+- Loading .h5ad file data into the database.
+- Summarizing datasets to outline structure and components.
+- Serving cell data for analysis and visualization.
 
-    a. First, grab a .h5ad files from Tabula Sapiens website:
-    https://figshare.com/articles/dataset/Tabula_Sapiens_release_1_0/14267219
-    Then, unpack it and put it into /backend/datasets.
-    
-    b. Run `docker-compose up`in the folder with docker-compose file.
-    
-    c.* You might need to remove migrations folder and run `flask db init` from the web container.
-    
-    d. After everything starts, you might need to run a curl (replace filename) :
-    ```
-      curl -X POST http://localhost:5000/summarize_h5ad -H "Content-Type: application/json" -d '{"path":"/app/datasets/<filename>.h5ad"}'
-    ```
-    Then, everything should work if you uncomment real calls in frontend api (fetchData.js) as it currently doesnt require backend.
-    
-    *But you shouldn't need to! Migrations folder is stored in the repo and should automatically load into the docker container.
+### Local Development Setup
 
-## 6. UI - next steps
+Local setup involves downloading .h5ad files, preparing the backend dataset directory, and executing `docker-compose up`. 
+Curl for populating database:
+`
+curl -X POST http://localhost:5000/summarize_h5ad -H "Content-Type: application/json" -d '{"path":"/app/datasets/<filename>.h5ad"}'
+`
 
-I've implemented the frontend features using React, react-window for scrollable, searchable lists, and three.js for interactive 3D visualizations, aiming to enhance data exploration and presentation.
-    
-I'm now considering the scalability and performance optimizations, especially for handling large datasets and complex queries. 
-Currently 50.000 elements are shown on list dynamically, along with 50.000 points live on the 3D screen which is a good result, 
-but can be further optimized via various techniques.
+### UI and Future Directions
 
-However, going above 1 000 000 points in JavaScript can be a challenge, so additional optimizations, including chunking, or creating denser cloud points would be necessary.
-Also, more changes to the Flask API endpoints would be necessary, to allow filtering on the backend level.
-    
-Contact me if you think that you have a good idea what can be the most beneficial trajectory of this project for any potential users!
+The frontend is developed with React, employing react-window for efficient list management and three.js for 3D visualization. Future considerations focus on scalability and optimization for handling large datasets and complex queries. The current capacity includes dynamically displaying 50,000 elements in lists and 3D visualizations, with ambitions to scale beyond one million points through advanced techniques and backend filtering enhancements.
+
+### Collaboration and Contact
+
+The project is open for collaboration. Let me know if you have some ideas!
+
