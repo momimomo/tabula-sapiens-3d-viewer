@@ -41,9 +41,9 @@ Curl for populating database:
 curl -X POST http://localhost:5000/summarize_h5ad -H "Content-Type: application/json" -d '{"path":"/app/datasets/<filename>.h5ad"}'
 `
 
-## UI and Future Directions
+## Next steps - UI & data filtering
 
-The frontend is developed with React, employing react-window for efficient list management and three.js for 3D visualization. Future considerations focus on scalability and optimization for handling large datasets and complex queries. The current capacity includes dynamically displaying 50,000 elements in lists and 3D visualizations, with ambitions to scale beyond one million points through advanced techniques and backend filtering enhancements.
+The frontend is developed with React, employing react-window for efficient list management and three.js for 3D visualization. However, different renderers are being considered at this moment. Future considerations focus on scalability and optimization for handling large datasets and complex queries. The current capacity includes dynamically displaying 50,000 elements in lists and 3D visualizations, with ambitions to scale beyond one million points through advanced techniques and backend filtering enhancements, but it's not decided yet if this choice of libraries is the best.
 
 ### Collaboration and Contact
 
