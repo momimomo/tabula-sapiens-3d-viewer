@@ -17,23 +17,23 @@ The tool is particularly useful for examining multiple aspects of data simultane
 Currently, the viewer is applied to explore the Blood Single Cell dataset.
 
 
-### Installation Prerequisites
+## Installation Prerequisites
 
 The backend infrastructure utilizes Docker to containerize both a Flask application and a PostgreSQL database, ensuring consistent, isolated development environments. 
 Use docker-compose for local development.
 
-### Data Processing
+## Data Processing
 
 To visualize the datasets, the viewer processes .h5ad files, extracting cell metadata and dimensionality reduction data, specifically UMAP coordinates, for 3D visualization. Data is sourced from the Tabula Sapiens release available online. Then, this data is loaded into PostgreSQL and served via Flask ednpoints as JSON responses with just the bare minimum required for the visualization. Current live example uses one such example response, created via the logic that can be found in the Flask app.
 
-### API Development
+## API Development
 
 The Flask backend supports several functions, including:
 - Loading .h5ad file data into the database.
 - Summarizing datasets to outline structure and components.
 - Serving cell data for analysis and visualization.
 
-### Local Development Setup
+## Local Development Setup
 
 Local setup involves downloading .h5ad files, preparing the backend dataset directory, and executing `docker-compose up`. 
 Curl for populating database:
@@ -41,7 +41,7 @@ Curl for populating database:
 curl -X POST http://localhost:5000/summarize_h5ad -H "Content-Type: application/json" -d '{"path":"/app/datasets/<filename>.h5ad"}'
 `
 
-### UI and Future Directions
+## UI and Future Directions
 
 The frontend is developed with React, employing react-window for efficient list management and three.js for 3D visualization. Future considerations focus on scalability and optimization for handling large datasets and complex queries. The current capacity includes dynamically displaying 50,000 elements in lists and 3D visualizations, with ambitions to scale beyond one million points through advanced techniques and backend filtering enhancements.
 
